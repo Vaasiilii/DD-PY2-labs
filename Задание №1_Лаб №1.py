@@ -21,7 +21,7 @@ class Window:
         if not isinstance(window_handle, (int, float)):
             raise TypeError("Количество оконных ручек должно быть int или float")
         if window_handle < 1:
-            raise ValueError("Количество оконных ручек не может быть оменьше одного, тк не открыть/закрыть окно")
+            raise ValueError("Количество оконных ручек не может быть меньше одного, тк не открыть/закрыть окно")
         self.window_handle = window_handle
 
     def is_window_installed(self) -> bool:
@@ -70,6 +70,57 @@ class Window:
         """
         ...
 
+if __name__ == "__main__":
+    doctest.testmod()  # тестирование примеров, которые находятся в документации
+
+class Bookshelf:
+    def __init__(self, books_amount: float, shelf_amount: float):
+        """
+        Создание и подготовка к работе объекта "Окно"
+
+        :param books_amount: количество книг на полке в шкафу
+        :param shelf_amount: число полок в книжном шкафу
+
+        Примеры:
+        >>> bookshelf = Bookshelf(10, 4)  # инициализация экземпляра класса
+        """
+        if not isinstance(books_amount, (int, float)):
+            raise TypeError("Количество книг быть типа int или float")
+        if books_amount <= 0:
+            raise ValueError("Количество окон должно быть положительным числом")
+        self.books_amount = books_amount
+
+        if not isinstance(shelf_amount, (int, float)):
+            raise TypeError("Количество книжных полок должно быть int или float")
+        if shelf_amount < 1:
+            raise ValueError("Количество книжных полок не может быть меньше одного, тк не некуда будет поставить книги")
+        self.shelf_amount = shelf_amount
+
+if __name__ == "__main__":
+    doctest.testmod()  # тестирование примеров, которые находятся в документации
+
+class Car:
+    def __init__(self, wheels_amount: float, seats_amount: float):
+        """
+        Создание и подготовка к работе объекта "Окно"
+
+        :param seats_amount: количество мест в автомобиле
+        :param wheels_amount: количество колес у автомобиля
+
+        Примеры:
+        >>>  BMW = Car(2, 4)  # инициализация экземпляра класса
+        """
+        if not isinstance(wheels_amount, (int, float)):
+            raise TypeError("Количество мест должно быть типа int или float")
+        if wheels_amount < 1:
+            raise ValueError("Количество мест должно быть не меньше одного")
+        self.wheels_amount = wheels_amount
+
+        if not isinstance(seats_amount, (int, float)):
+            raise TypeError("Количество колес должно быть int или float")
+        if seats_amount < 4:
+            raise ValueError("Количество колес не может быть меньше четырех, тк машина не сможет нормально ехать")
+        self.seats_amount = seats_amount
 
 if __name__ == "__main__":
     doctest.testmod()  # тестирование примеров, которые находятся в документации
